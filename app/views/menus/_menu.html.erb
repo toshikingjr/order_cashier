@@ -1,0 +1,9 @@
+<div class="card">
+  <%= link_to image_tag(menu.image, class: 'card__img'), '#' %>
+  <div class="card__body">
+    <%= link_to menu.name, '#', class: :card__title%>
+    <p class="card__summary">
+      <%= menu.price %>円
+    </p>
+  </div>
+</div>

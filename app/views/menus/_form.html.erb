@@ -1,0 +1,20 @@
+<%= form_with model: menu, local: true do |f|%>
+  <div class="field">
+    <%= f.label :name, "商品名" %><br />
+    <%= f.text_field :name, id:"menu_name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "商品価格" %><br />
+    <%= f.text_area :price, class: :form__text, id:"menu_price" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image, "商品画像" %><br />
+    <%= f.file_field :image, id:"menu_image" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+<% end %>
