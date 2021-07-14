@@ -28,6 +28,10 @@ class MenusController < ApplicationController
     menu = Menu.find(params[:id])
     menu.destroy
   end
+  def show
+    @menu = Menu.find(params[:id])
+    @menu_order = MenuOrder.new
+  end
 
   private
   def menu_params
