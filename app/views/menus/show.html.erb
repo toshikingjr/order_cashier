@@ -1,0 +1,15 @@
+<main class="main">
+    <div class="card__wrapper">
+      <%= form_with url: add_menu_path(@menu.id), local: true do |f|%>
+          <%= render partial: "menu", locals: {menu: @menu} %>
+          <div class="field">
+            <%= f.label :quantity, "数量" %><br />
+            <%= f.number_field :quantity, class: :form__text, id:"item_quantity" %>
+            <%= f.hidden_field :menu_id, value: @menu.id %>
+          </div>
+          <div class="actions">
+            <%= f.submit "注文する", class: :form__btn  %>
+          </div>
+      <% end %>
+    </div>
+</main>

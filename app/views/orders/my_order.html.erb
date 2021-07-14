@@ -1,0 +1,8 @@
+<h2>カートないアイテム</h2>
+<main class="main">
+    <div class="card__wrapper">
+      <%= render partial: "order", collection: @order_menus %>
+    </div><%= "合計#{@total}円" %>
+    <%= link_to '買い物を続ける', root_path %>
+    <%= button_to '注文する', "#" %>
+</main>

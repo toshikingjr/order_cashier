@@ -1,0 +1,12 @@
+  <li class="card__body">
+    <%= link_to order.menu.name, '#', class: :card__title %>
+    <p class="card__summary">
+      <%= order.menu.price %>円
+      <%= form_with(url: update_menu_path, method: :post, local: :true) do |f| %>
+      <%= f.hidden_field :menu_id, value: order.menu.id %>
+      <%= f.number_field :quantity, value: order.quantity %>
+      <%= f.submit "更新" %>
+      <% end %>
+      <%= button_to "削除", delete_menu_path(menu_id: order.menu.id), method: :delete, deta: {confirm:"削除しますか？"} %>
+    </p>
+  </li>
