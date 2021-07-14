@@ -14,7 +14,7 @@ class TablesController < ApplicationController
     end
   end
   def show
-    @table = Table.find(table_params)
+    @table = Table.find(params[:id])
   end
 
   private

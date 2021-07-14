@@ -1,0 +1,8 @@
+<main class="main">
+    <div class="card__wrapper">
+      <%= render partial: "table", locals: {table: @table} %>
+    </div>
+    <div>
+      <%= link_to "メニュー画面へ", table_menus_path(@table.id) %>
+    </div>
+</main>
