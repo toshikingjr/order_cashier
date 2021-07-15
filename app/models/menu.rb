@@ -1,7 +1,7 @@
 class Menu < ApplicationRecord
   has_one_attached :image
   has_many :menu_orders, dependent: :destroy
-  validates :price, numericality: { only_integer: true }
-  validates :name, presence: true
   has_many :order, through: :menu_orders
+  has_many :menu_tag_relations
+  has_many :tags, through: :menu_tag_relations
 end
