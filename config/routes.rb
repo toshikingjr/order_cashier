@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'menus#index'
   resources :menus 
   resources :orders, only: [:new, :create]
