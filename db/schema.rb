@@ -103,6 +103,9 @@ ActiveRecord::Schema.define(version: 2021_07_15_064352) do
   add_foreign_key "menu_orders", "orders"
   add_foreign_key "menu_tag_relations", "menus"
   add_foreign_key "menu_tag_relations", "tags"
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "menu_orders", "menus"
+  add_foreign_key "menu_orders", "orders"
   add_foreign_key "order_confirms", "orders"
   add_foreign_key "order_confirms", "tables"
 end

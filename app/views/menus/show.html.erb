@@ -1,6 +1,6 @@
 <main class="main">
     <div class="card__wrapper">
-      <%= form_with url: add_menu_path(@menu.id), local: true do |f|%>
+      <%= form_with url: table_add_menu_path(table_id: params[:table_id], id: @menu.id), local: true do |f|%>
           <%= render partial: "menu", locals: {menu: @menu} %>
           <div class="field">
             <%= f.label :quantity, "数量" %><br />

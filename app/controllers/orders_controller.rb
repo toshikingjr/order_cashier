@@ -1,9 +1,10 @@
 class OrdersController < ApplicationController
-  before_action :setup_order_menu!, only: [:add_item, :update_item, :delete_item]
+  before_action :setup_order_menu!, only: [:add_menu, :update_menu, :delete_menu]
 
   def my_order
-    @order_menus = current_order.menu_orders.includes([:menu])
-    @total = @order_menus.inject(0){ |sum, item| sum + item.sum_of_price }
+    @menu_orders = current_order.menu_orders.includes([:menu])
+    @total = @menu_orders.inject(0){ |sum, item| sum + item.sum_of_price }
+    @order_confirm = OrderConfirm.new
   end
 
   # 商品一覧画面から、「商品購入」を押した時のアクション
@@ -12,28 +13,28 @@ class OrdersController < ApplicationController
     @menu_order.quantity += params[:quantity].to_i
     if @menu_order.save
       flash[:notice] = '注文を追加しました'
-      redirect_to my_order_path
+      redirect_to table_my_order_path(params[:table_id])
     else
       flash[:alert] = '注文の追加に失敗しました'
-      redirect_to menu_url(params[:menu_id])
+      redirect_to table_menu_url(table_id: params[:table_id], id: params[:menu_id])
     end
   end
 
   # カート詳細画面から、「更新」を押した時のアクション
   def update_menu
-    @order_menu.update(quantity: params[:quantity].to_i)
-    redirect_to my_order_path
+    @menu_order.update(quantity: params[:quantity].to_i)
+    redirect_to table_my_order_path(params[:table_id])
   end
 
   # カート詳細画面から、「削除」を押した時のアクション
   def delete_menu
-    @order_menu.destroy
-    redirect_to my_order_path
+    @menu_order.destroy
+    redirect_to table_my_order_path(params[:table_id])
   end
 
   private
 
   def setup_order_menu!
-    @order_menu = current_order.order_menus.find_by(menu_id: params[:menu_id])
+    @menu_order = current_order.menu_orders.find_by(menu_id: params[:menu_id])
   end
 end
