@@ -1,7 +1,7 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: [:edit, :update, :show, :destroy]
   def index
-    @menus = Menu.all
+    @menus = Menu.all.page(params[:page]).per(2)
   end
   def new
     @menu = MenuTag.new
