@@ -5,7 +5,9 @@
   <% menu_order = MenuOrder.where(order_id: table.order_confirms.map(&:order_id)).order(id: "DESC") %>
   <div>
   <% menu_order.each do |menu| %>
-    <%= menu.menu.name %>×<%= menu.quantity %>個
+    <div class="menu_output">
+      <%= menu.menu.name %>×<%= menu.quantity %>個
+    </div>
   <% end %>
   </div>
 
