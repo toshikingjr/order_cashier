@@ -1,6 +1,6 @@
 class TablesController < ApplicationController
   def index
-    @tables = Table.all
+    @tables = Table.includes(:order_confirms)
   end
   def new
     @table = Table.new
@@ -15,6 +15,7 @@ class TablesController < ApplicationController
   end
   def show
     @table = Table.find(params[:id])
+    @menu_orders = MenuOrder.where(order_id: @table.order_confirms.map(&:order_id))
   end
 
   private

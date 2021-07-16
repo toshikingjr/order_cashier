@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     post '/add_menu' => 'orders#add_menu'
     post '/update_menu' => 'orders#update_menu'
     delete '/delete_menu' => 'orders#delete_menu'
+    resources :order_confirms, only: [:create, :destroy]
   end
 end

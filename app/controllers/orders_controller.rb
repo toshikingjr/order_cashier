@@ -2,8 +2,9 @@ class OrdersController < ApplicationController
   before_action :setup_order_menu!, only: [:add_menu, :update_menu, :delete_menu]
 
   def my_order
-    @order_menus = current_order.menu_orders.includes([:menu])
-    @total = @order_menus.inject(0){ |sum, item| sum + item.sum_of_price }
+    @menu_orders = current_order.menu_orders.includes([:menu])
+    @total = @menu_orders.inject(0){ |sum, item| sum + item.sum_of_price }
+    @order_confirm = OrderConfirm.new
   end
 
   # 商品一覧画面から、「商品購入」を押した時のアクション

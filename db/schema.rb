@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_14_064833) do
+ActiveRecord::Schema.define(version: 2021_07_14_085734) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2021_07_14_064833) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "order_confirms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "table_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["order_id"], name: "index_order_confirms_on_order_id"
+    t.index ["table_id"], name: "index_order_confirms_on_table_id"
+  end
+
   create_table "orders", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -64,4 +73,6 @@ ActiveRecord::Schema.define(version: 2021_07_14_064833) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "menu_orders", "menus"
   add_foreign_key "menu_orders", "orders"
+  add_foreign_key "order_confirms", "orders"
+  add_foreign_key "order_confirms", "tables"
 end
