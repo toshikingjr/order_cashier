@@ -1,6 +1,13 @@
 <main class="main">
     <div class="card__wrapper">
-      <%= render partial: "table", locals: {table: @table} %>
+      <% menu_order = MenuOrder.where(order_id: @table.order_confirms.map(&:order_id)) %>
+      <% total = menu_order.inject(0){ |sum, item| sum + item.sum_of_price } %>
+      <% menu_order.each do |menu| %>
+        <%= menu.menu.name %>×<%= menu.quantity %>個
+      <% end %>
+    </div>
+    <div>
+      合計<%= total %>円
     </div>
     <div>
       <%= link_to "メニュー画面へ", table_menus_path(@table.id) %>

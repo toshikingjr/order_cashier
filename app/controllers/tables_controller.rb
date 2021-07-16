@@ -17,6 +17,14 @@ class TablesController < ApplicationController
     @table = Table.find(params[:id])
     @menu_orders = MenuOrder.where(order_id: @table.order_confirms.map(&:order_id))
   end
+  def destroy
+    @table = Table.find(params[:id])
+    if @table.destroy
+      redirect_to :index
+    else
+      render :show
+    end
+  end
 
   private
 

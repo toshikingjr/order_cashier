@@ -2,15 +2,11 @@
   <div>
     <%= link_to table.table_num, table_path(table.id) %>
   </div>
-  <% menu_order = MenuOrder.where(order_id: table.order_confirms.map(&:order_id)) %>
-  <% total = menu_order.inject(0){ |sum, item| sum + item.sum_of_price } %>
+  <% menu_order = MenuOrder.where(order_id: table.order_confirms.map(&:order_id)).order(id: "DESC") %>
   <div>
   <% menu_order.each do |menu| %>
     <%= menu.menu.name %>×<%= menu.quantity %>個
   <% end %>
-  </div>
-  <div>
-    合計<%= total %>円
   </div>
 
 </div>
