@@ -1,4 +1,4 @@
-<%= form_with model: menu, local: true do |f|%>
+<%= form_with model: menu, url: menus_path, local: true do |f|%>
   <div class="field">
     <%= f.label :name, "商品名" %><br />
     <%= f.text_field :name, id:"menu_name" %>
@@ -12,6 +12,12 @@
   <div class="field">
     <%= f.label :image, "商品画像" %><br />
     <%= f.file_field :image, id:"menu_image" %>
+  </div>
+
+  <div class="check_box">
+    <span>タグ</span>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :tag_name)  %>
+
   </div>
 
   <div class="actions">

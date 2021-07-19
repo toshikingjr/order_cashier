@@ -1,6 +1,7 @@
 class MenusController < ApplicationController
+  before_action :set_menu, only: [:edit, :update, :show, :destroy]
   def index
-    @menus = Menu.all
+    @menus = Menu.all.page(params[:page]).per(2)
   end
   def new
     @menu = Menu.new
@@ -8,16 +9,14 @@ class MenusController < ApplicationController
   def create
     @menu = Menu.new(menu_params)
     if @menu.save
-      redirect_to root_path
+      redirect_to tables_path
     else
       render :new
     end
   end
   def edit
-    @menu = Menu.find(params[:id])
   end
   def update
-    @menu = Menu.find(params[:id])
     if @menu.update(menu_params)
       redirect_to root_path
     else
@@ -25,16 +24,19 @@ class MenusController < ApplicationController
     end
   end
   def destroy
-    menu = Menu.find(params[:id])
     menu.destroy
   end
   def show
-    @menu = Menu.find(params[:id])
     @menu_order = MenuOrder.new
   end
 
   private
   def menu_params
-    params.require(:menu).permit(:name, :price, :image)
+    params.require(:menu).permit(:name, :price, :image, {:tag_ids=> []})
+  end
+
+  def set_menu
+    @menu = Menu.find(params[:id])
+    @table = Table.find(params[:table_id])
   end
 end
