@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
     @menu_orders = current_order.menu_orders.includes([:menu])
     @total = @menu_orders.inject(0){ |sum, item| sum + item.sum_of_price }
     @order_confirm = OrderConfirm.new
+    @table = Table.find(params[:table_id])
   end
 
   # 商品一覧画面から、「商品購入」を押した時のアクション

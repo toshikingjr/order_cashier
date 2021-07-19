@@ -14,9 +14,10 @@
     <%= f.file_field :image, id:"menu_image" %>
   </div>
 
-  <div class="field">
-    <%= f.label :tag_name, "商品分類" %><br />
-    <%= f.text_field :tag_name, id:"menu_tag" %>
+  <div class="check_box">
+    <span>タグ</span>
+    <%= f.collection_check_boxes(:tag_ids, Tag.all, :id, :tag_name)  %>
+
   </div>
 
   <div class="actions">

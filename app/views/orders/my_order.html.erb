@@ -3,7 +3,7 @@
     <div class="card__wrapper">
       <%= render partial: "order", collection: @menu_orders %>
     </div><%= "合計#{@total}円" %>
-    <%= link_to '買い物を続ける', root_path %>
+    <%= link_to '買い物を続ける', table_menus_path(table_id: @table.id) %>
     <%= form_with model: @order_confirm, url: table_order_confirms_path(params[:table_id]), local: :true do |f| %>
       <%= f.hidden_field :order_id, value: current_order.id %>
       <%= f.submit "注文を確定する" %>
