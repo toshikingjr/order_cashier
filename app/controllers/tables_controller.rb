@@ -1,4 +1,5 @@
 class TablesController < ApplicationController
+  before_action :authenticate_user!, except: :show
   def index
     @tables = Table.includes(:order_confirms)
   end

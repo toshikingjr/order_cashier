@@ -1,3 +1,4 @@
 class Table < ApplicationRecord
-  has_many :order_confirms
+  has_many :order_confirms, dependent: :destroy
+
 end

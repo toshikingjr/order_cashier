@@ -12,4 +12,7 @@
     <div>
       <%= link_to "メニュー画面へ", table_menus_path(@table.id) %>
     </div>
+    <% if user_signed_in? %>
+      <%= link_to "テーブル削除", table_path(@table.id), method: :delete %>
+    <% end %>
 </main>
