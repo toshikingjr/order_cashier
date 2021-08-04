@@ -7,6 +7,8 @@
             <%= f.number_field :quantity, class: :form__text, id:"item_quantity" %>
             <%= f.hidden_field :menu_id, value: @menu.id %>
             <%= f.hidden_field :table_num, value: @table.table_num %>
+            <%= f.hidden_field :age_id, value: @table.customer_info.age_id %>
+            <%= f.hidden_field :sex_id, value: @table.customer_info.sex_id %>
           </div>
           <div class="actions">
             <%= f.submit "注文する", class: :form__btn  %>

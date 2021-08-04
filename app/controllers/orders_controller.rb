@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
   # 商品一覧画面から、「商品購入」を押した時のアクション
   def add_menu
-    @menu_order ||= MenuOrder.new(order_id: current_order.id, menu_id: params[:menu_id], table_num: params[:table_num])
+    @menu_order ||= MenuOrder.new(order_id: current_order.id, menu_id: params[:menu_id], table_num: params[:table_num], age_id: params[:age_id], sex_id: params[:sex_id])
     @menu_order.quantity += params[:quantity].to_i
     if @menu_order.save
       flash[:notice] = '注文を追加しました'
