@@ -2,18 +2,7 @@
   <div>
     <%= link_to table.table_num, table_path(table.id) %>
   </div>
-  <% menu_order = MenuOrder.where(order_id: table.order_confirms.map(&:order_id)).order(id: "ASC") %>
   <div>
-  <% menu_order.each do |menu| %>
-    <div class="menu_output">
-      <% menu_tag = MenuTagRelation.where(menu_id: menu.menu_id) %>
-      <% if menu_tag != nil %>
-        <% menu_tag.each do |m| %>
-          <%= m.tag.tag_name %>
-        <% end %>
-      <% end %>
-      <%= menu.menu.name %>×<%= menu.quantity %>個<%= l menu.created_at %>
-    </div>
-  <% end %>
+    <% menu_order = MenuOrder.where(order_id: table.order_confirms.map(&:order_id)).order(id: "ASC") %>
   </div>
 </div>

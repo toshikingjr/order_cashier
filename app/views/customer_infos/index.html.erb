@@ -1,0 +1,57 @@
+<div>
+  <h2>性別と年齢層の集計</h2>
+  <div>
+    <h3>今月の年齢層(男性)</h3>
+    <% @count_men_month.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>今月の年齢層(女性)</h3>
+    <% @count_women_month.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>先月の年齢層(男性)</h3>
+    <% @count_men_prev_month.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>先月の年齢層(女性)</h3>
+    <% @count_women_prev_month.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>前年の年齢層(男性)</h3>
+    <% @count_men_prev_year.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>前年の年齢層(女性)</h3>
+    <% @count_women_prev_year.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+</div>

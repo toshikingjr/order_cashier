@@ -14,5 +14,9 @@
     </div>
     <% if user_signed_in? %>
       <%= link_to "テーブル削除", table_path(@table.id), method: :delete %>
+      <%= link_to "テーブル一覧へ", tables_path %>
     <% end %>
+    <div>
+      <%= button_to '店員をよぶ or お会計', {controller: 'tables', action: 'calling' }, method: :get %>
+    </div>
 </main>

@@ -1,0 +1,13 @@
+<div class="menu_orders">
+  <% @menu_orders.each do |order| %>
+    <div class="menu_output menu_order" data-id=<%= order.id %>>
+      <% menu_tag = MenuTagRelation.where(menu_id: order.menu_id) %>
+      <% if menu_tag != nil %>
+        <% menu_tag.each do |m| %>
+          <%= m.tag.tag_name %>
+        <% end %>
+      <% end %>
+      <%= order.menu.name %>×<%= order.quantity %>個 No.<%= order.table_num %>
+    </div>
+  <% end %>
+</div>
