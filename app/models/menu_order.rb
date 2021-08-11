@@ -5,4 +5,6 @@ class MenuOrder < ApplicationRecord
   def sum_of_price
     menu.price * quantity
   end
+
+  validates :table_num, presence: true
 end

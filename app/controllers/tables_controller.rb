@@ -1,7 +1,7 @@
 class TablesController < ApplicationController
-  before_action :authenticate_user!, except: :show
+  before_action :authenticate_user!, except: [:show, :calling]
   def index
-    @tables = Table.includes(:order_confirms)
+    @tables = Table.group('table_num').from(Table.order(id: :desc), :tables)
   end
   def new
     @table = Table.new
@@ -21,10 +21,18 @@ class TablesController < ApplicationController
   def destroy
     @table = Table.find(params[:id])
     if @table.destroy
-      redirect_to :index
+      redirect_to tables_path
     else
       render :show
     end
+  end
+
+  def calling
+    @table = Table.find(params[:id])
+    CreateNotification.call(
+      contents: { 'ja' => "#{@table.table_num}テーブル 店員呼び出し or 会計" },
+      type: 'tables#calling'
+    )
   end
 
   private

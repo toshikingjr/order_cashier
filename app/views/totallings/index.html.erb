@@ -1,0 +1,71 @@
+<div>
+  <h3>昨日の売上</h3>
+  <% sales_day = 0 %>
+  <% @total_day.each do |key, value| %>
+    <div>
+      <% menu = Menu.find(key) %>
+      <%= "#{menu.name}×#{value}個" %>
+      <% sales_day += menu.price * value %>
+    </div>
+  <% end %>
+  <p>合計<%= sales_day %>円</p>
+</div>
+<div>
+  <h3>１週間の売上</h3>
+  <% sales_week = 0 %>
+  <% @total_week.each do |key, value| %>
+    <div>
+      <% menu = Menu.find(key) %>
+      <%= "#{menu.name}×#{value}個" %>
+      <% sales_week += menu.price * value %>
+    </div>
+  <% end %>
+  <p>合計<%= sales_week %>円</p>
+</div>
+<h3>先週１週間の売上</h3>
+  <% sales_prev_week = 0 %>
+  <% @total_prev_week.each do |key, value| %>
+    <div>
+      <% menu = Menu.find(key) %>
+      <%= "#{menu.name}×#{value}個" %>
+      <% sales_prev_week += menu.price * value %>
+    </div>
+  <% end %>
+  <p>合計<%= sales_prev_week %>円</p>
+</div>
+<div>
+  <h3>今月の売上</h3>
+  <% sales_month = 0 %>
+  <% @total_month.each do |key, value| %>
+    <div>
+      <% menu = Menu.find(key) %>
+      <%= "#{menu.name}×#{value}個" %>
+      <% sales_month += menu.price * value %>
+    </div>
+  <% end %>
+  <p>合計<%= sales_month %>円</p>
+</div>
+<div>
+  <h3>先月の売上</h3>
+  <% sales_prev_month = 0 %>
+  <% @total_prev_month.each do |key, value| %>
+    <div>
+      <% menu = Menu.find(key) %>
+      <%= "#{menu.name}×#{value}個" %>
+      <% sales_prev_month += menu.price * value %>
+    </div>
+  <% end %>
+  <p>合計<%= sales_prev_month %>円</p>
+</div>
+<div>
+  <h3>前年同月の売上</h3>
+  <% sales_prev_year = 0 %>
+  <% @total_prev_year.each do |key, value| %>
+    <div>
+      <% menu = Menu.find(key) %>
+      <%= "#{menu.name}×#{value}個" %>
+      <% sales_prev_year += menu.price * value %>
+    </div>
+  <% end %>
+  <p>合計<%= sales_prev_year %>円</p>
+</div>

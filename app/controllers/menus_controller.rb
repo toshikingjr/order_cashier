@@ -1,7 +1,9 @@
 class MenusController < ApplicationController
   before_action :set_menu, only: [:edit, :update, :show, :destroy]
   def index
-    @menus = Menu.all.page(params[:page]).per(2)
+    @menus = params[:tag_id].present? ? Tag.find(params[:tag_id]).menu : Menu.all.page(params[:page]).per(6)
+    @table = Table.find(params[:table_id])
+    @menus = @menus.page(params[:page]).per(6)
   end
   def new
     @menu = Menu.new
@@ -28,6 +30,7 @@ class MenusController < ApplicationController
   end
   def show
     @menu_order = MenuOrder.new
+    @table = Table.find(params[:table_id])
   end
 
   private

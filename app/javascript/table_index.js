@@ -9,3 +9,4 @@ function hide(){
 };
 
 window.addEventListener('load', hide);
+window.addEventListener('click', hide);

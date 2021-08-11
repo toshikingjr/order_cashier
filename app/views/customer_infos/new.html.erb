@@ -1,0 +1,20 @@
+<div>
+  <h3>アンケートにご協力ください</h3>
+  <%= form_with model: @customer_info, url: table_customer_infos_path(@table.id), local: true do |f| %>
+    <div>
+      性別を入力してください
+    </div>
+    <div>
+      <%= f.collection_select(:sex_id, Sex.all, :id, :name, {}) %>
+    </div>
+    <div>
+      年齢を入力してください
+    </div>
+    <div>
+      <%= f.collection_select(:age_id, Age.all, :id, :name, {}) %>
+    </div>
+    <div>
+      <%= f.submit "注文を始める" %>
+    </div>
+  <% end %>
+</div>

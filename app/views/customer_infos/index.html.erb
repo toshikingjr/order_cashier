@@ -1,0 +1,288 @@
+<div>
+  <h2>性別と年齢層の集計</h2>
+  <div>
+    <h3>先月の顧客総数（テーブル単位）</h3>
+    <%= "総顧客数 #{@all_count_month}組" %>
+  </div>
+  <div>
+    <h3>先月の年齢層(男性)</h3>
+    <% @count_men_month.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>先月の年齢層(女性)</h3>
+    <% @count_women_month.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>3ヶ月の顧客総数（テーブル単位）</h3>
+    <%= "総顧客数 #{@all_count_3_month}組" %>
+  </div>
+  <div>
+    <h3>３ヶ月の年齢層(男性)</h3>
+    <% @count_men_3_month.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の年齢層(女性)</h3>
+    <% @count_women_3_month.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>前年の顧客総数（テーブル単位）</h3>
+    <%= "総顧客数 #{@all_count_prev_year}組" %>
+  </div>
+  <div>
+    <h3>前年の年齢層(男性)</h3>
+    <% @count_men_prev_year.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>前年の年齢層(女性)</h3>
+    <% @count_women_prev_year.each do |key, value| %>
+      <div>
+        <% age = Age.data.detect{|o| o[:id] == key} %>
+        <%= "#{age[:name]}×#{value}組" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div>
+  <h2>性別と年齢別注文商品集計</h2>
+  <div>
+    <h3>３ヶ月の10代後半の注文商品（男性）</h3>
+    <% @count_menu_men_10s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の10代後半の注文商品（女性）</h3>
+    <% @count_menu_women_10s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の20代前半の注文商品（男性）</h3>
+    <% @count_menu_men_early_20s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の20代前半の注文商品（女性）</h3>
+    <% @count_menu_women_early_20s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の20代後半の注文商品（男性）</h3>
+    <% @count_menu_men_late_20s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の20代後半の注文商品（女性）</h3>
+    <% @count_menu_women_late_20s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の30代前半の注文商品（男性）</h3>
+    <% @count_menu_men_early_30s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の30代前半の注文商品（女性）</h3>
+    <% @count_menu_women_early_30s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の30代後半の注文商品（男性）</h3>
+    <% @count_menu_men_late_30s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の30代後半の注文商品（女性）</h3>
+    <% @count_menu_women_late_30s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の40代前半の注文商品（男性）</h3>
+    <% @count_menu_men_early_40s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の40代前半の注文商品（女性）</h3>
+    <% @count_menu_women_early_40s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の40代後半の注文商品（女性）</h3>
+    <% @count_menu_men_late_40s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の40代後半の注文商品（女性）</h3>
+    <% @count_menu_women_late_40s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の50代前半の注文商品（男性）</h3>
+    <% @count_menu_men_early_50s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の50代前の注文商品（女性）</h3>
+    <% @count_menu_women_early_50s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の50代後半の注文商品（男性）</h3>
+    <% @count_menu_men_late_50s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の50代後半の注文商品（女性）</h3>
+    <% @count_menu_women_late_50s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の60代前半の注文商品（男性）</h3>
+    <% @count_menu_men_early_60s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の60代前半の注文商品（女性）</h3>
+    <% @count_menu_women_early_60s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の60代後半の注文商品（男性）</h3>
+    <% @count_menu_men_late_60s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の60代後半の注文商品（女性）</h3>
+    <% @count_menu_women_late_60s.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の70際以上の注文商品（男性）</h3>
+    <% @count_menu_men_70s_and_over.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+  <div>
+    <h3>３ヶ月の70際以上の注文商品（女性）</h3>
+    <% @count_menu_women_70s_and_over.each do |key, value| %>
+      <div>
+        <% menu = Menu.find(key) %>
+        <%= "#{menu.name}×#{value}個" %>
+      </div>
+    <% end %>
+  </div>
+</div>
