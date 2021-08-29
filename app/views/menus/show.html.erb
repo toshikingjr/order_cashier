@@ -15,4 +15,10 @@
           </div>
       <% end %>
     </div>
+    <div>
+      <%= link_to "カート表示", table_my_order_path(@table.id) %>
+    </div>
+    <div>
+      <%= link_to "注文履歴", table_path(@table.id) %>
+    </div>
 </main>

@@ -63,8 +63,7 @@ class CustomerInfosController < ApplicationController
 
   def already_exist
     table = Table.find(params[:table_id])
-    customer_info = CustomerInfo.where(table_id: table.id)
-    if customer_info != nil
+    if CustomerInfo.where(table_id: table.id).exists?
       redirect_to table_menus_path(table.id)
     end
   end
