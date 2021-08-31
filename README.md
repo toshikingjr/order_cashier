@@ -25,6 +25,8 @@ password:gundam00
 カート画面ではオーダー数量の変更・削除・注文確定ができる
 注文履歴画面で注文履歴を閲覧・店員呼び出しが可能
 店員側は、各テーブルの注文履歴の確認やメニューの追加・集計されたデータの閲覧をすることができる
+事前にメニューを登録しておく *AWS導入をしていないため、一定時間でメニュー画像が消えてしまう
+
 
 * 目指した課題解決
 大学時代のアルバイト先（以下アルバイト先）で、店員側・お客側での作業効率の向上を目指して開発
@@ -35,6 +37,8 @@ password:gundam00
 https://docs.google.com/spreadsheets/d/13DSbtVQ6fHrKtrKr07jzgb_lC3RQVLxPsQnMyqU1A8o/edit?usp=sharing
 
 * 実装した機能についての画像やGIFおよびその説明
+メニューを新規作成するとメニュー画面に作成したメニューが表示される
+作成の際にカテゴリーを登録することによって、メニュー一覧画面でメニューをカテゴリーごとに絞ることができる
 [![Image from Gyazo](https://i.gyazo.com/65941d250abf660a048093a0904583f1.gif)](https://gyazo.com/65941d250abf660a048093a0904583f1)
 テーブル一覧画面では、table_numが複数存在する場合は、新しいものを表示する
 テーブル一覧でテーブル番号をクリックすると注文履歴画面に飛ぶことができる
@@ -42,6 +46,7 @@ https://docs.google.com/spreadsheets/d/13DSbtVQ6fHrKtrKr07jzgb_lC3RQVLxPsQnMyqU1
 [![Image from Gyazo](https://i.gyazo.com/a04d2585f5a9bbdcbbdb35132f66d23c.gif)](https://gyazo.com/a04d2585f5a9bbdcbbdb35132f66d23c)
 メニュー一覧画面でタグの絞り込みをすると選択したタグのみ表示できる
 注文したい商品をクリックすることでメニュー詳細画面に遷移することができる
+７つ以上の商品がメニューとして登録されている場合は、６つごとに次のページで表示する（画面下の遷移ボタンから移動できる）
 [![Image from Gyazo](https://i.gyazo.com/ea7b1c965376c9b4cdcde192acae1a24.gif)](https://gyazo.com/ea7b1c965376c9b4cdcde192acae1a24)
 メニュー詳細画面で数量を選択して、注文ボタンを押すとカート画面に移動する
 カート画面では、メニュー詳細画面で注文ボタンを押した商品と数量が表示される
