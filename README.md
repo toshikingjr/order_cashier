@@ -73,4 +73,5 @@ AWS導入予定
 
 * ローカルでの動作方法
 rails db:migrate 
+rails db:seed
 bundle install
