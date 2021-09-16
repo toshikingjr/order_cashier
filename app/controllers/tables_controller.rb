@@ -27,13 +27,10 @@ class TablesController < ApplicationController
     end
   end
 
-  #def calling
-   # @table = Table.find(params[:id])
-    #CreateNotification.call(
-     # contents: { 'ja' => "#{@table.table_num}テーブル 店員呼び出し or 会計" },
-      #type: 'tables#calling'
-    #)
-  #end
+  def calling
+    @table = Table.find(params[:id])
+    
+  end
 
   private
 
